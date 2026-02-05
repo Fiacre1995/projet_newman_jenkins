@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Users" tests="6" time="1.421">
-  <testsuite name="Products / Get Acces Token" id="669f9e74-4f78-411c-94e7-cbd050b4a514" timestamp="2026-02-05T12:27:25.862Z" tests="3" failures="0" errors="0" time="0.457">
-    <testcase name="Login OK" time="0.457" classname="ProductsGetAccesToken"/>
-    <testcase name="Token generated" time="0.457" classname="ProductsGetAccesToken"/>
-    <testcase name="Vérifier Schema de réponse" time="0.457" classname="ProductsGetAccesToken"/>
+<testsuites name="Users" tests="6" time="1.185">
+  <testsuite name="Products / Get Acces Token" id="07dae1b8-8594-46a8-bd5d-833821dbad6a" timestamp="2026-02-05T12:49:50.554Z" tests="3" failures="0" errors="0" time="0.244">
+    <testcase name="Login OK" time="0.244" classname="ProductsGetAccesToken"/>
+    <testcase name="Token generated" time="0.244" classname="ProductsGetAccesToken"/>
+    <testcase name="Vérifier Schema de réponse" time="0.244" classname="ProductsGetAccesToken"/>
   </testsuite>
-  <testsuite name="Products / Create Product" id="280b8a68-dedf-479b-8eee-cf2164a48e97" timestamp="2026-02-05T12:27:25.862Z" tests="2" failures="0" errors="0" time="0.118">
-    <testcase name="Product created" time="0.118" classname="ProductsCreateProduct"/>
-    <testcase name="Vérifier Schema de réponse" time="0.118" classname="ProductsCreateProduct"/>
+  <testsuite name="Products / Create Product" id="04cbb68c-b49e-4cf3-9fae-b81945221f23" timestamp="2026-02-05T12:49:50.554Z" tests="2" failures="0" errors="0" time="0.107">
+    <testcase name="Product created" time="0.107" classname="ProductsCreateProduct"/>
+    <testcase name="Vérifier Schema de réponse" time="0.107" classname="ProductsCreateProduct"/>
   </testsuite>
-  <testsuite name="Products / Get Product" id="a8263517-9c16-4635-b76c-ba41ed12e6c0" timestamp="2026-02-05T12:27:25.862Z" tests="2" failures="0" errors="0" time="0.147">
-    <testcase name="Afficher un produit" time="0.147" classname="ProductsGetProduct"/>
-    <testcase name="Vérifier Schema de réponse" time="0.147" classname="ProductsGetProduct"/>
+  <testsuite name="Products / Get Product" id="10aa1c15-8030-4a54-ab78-6538b1195baf" timestamp="2026-02-05T12:49:50.554Z" tests="2" failures="0" errors="0" time="0.108">
+    <testcase name="Afficher un produit" time="0.108" classname="ProductsGetProduct"/>
+    <testcase name="Vérifier Schema de réponse" time="0.108" classname="ProductsGetProduct"/>
   </testsuite>
-  <testsuite name="Products / Get Products" id="091334c0-38f9-4d17-b159-921c6b952efa" timestamp="2026-02-05T12:27:25.862Z" tests="2" failures="0" errors="0" time="0.139">
-    <testcase name="Afficher la liste des produits" time="0.139" classname="ProductsGetProducts"/>
-    <testcase name="Vérifier Schema de réponse" time="0.139" classname="ProductsGetProducts"/>
+  <testsuite name="Products / Get Products" id="27cc9236-594c-41fb-a593-84cb40a1fc16" timestamp="2026-02-05T12:49:50.554Z" tests="2" failures="0" errors="0" time="0.076">
+    <testcase name="Afficher la liste des produits" time="0.076" classname="ProductsGetProducts"/>
+    <testcase name="Vérifier Schema de réponse" time="0.076" classname="ProductsGetProducts"/>
   </testsuite>
-  <testsuite name="Products / Update Product" id="23af8443-4838-4df0-a94a-768f29309cf1" timestamp="2026-02-05T12:27:25.862Z" tests="2" failures="0" errors="0" time="0.290">
-    <testcase name="Modifier produit" time="0.290" classname="ProductsUpdateProduct"/>
-    <testcase name="Vérifier Schema de réponse" time="0.290" classname="ProductsUpdateProduct"/>
+  <testsuite name="Products / Update Product" id="b7b8d3ad-0c28-4fb6-91bb-b2025eb0a619" timestamp="2026-02-05T12:49:50.554Z" tests="2" failures="0" errors="0" time="0.343">
+    <testcase name="Modifier produit" time="0.343" classname="ProductsUpdateProduct"/>
+    <testcase name="Vérifier Schema de réponse" time="0.343" classname="ProductsUpdateProduct"/>
   </testsuite>
-  <testsuite name="Products / Delete Product" id="a26c1c5a-276b-4e31-9cfb-b1964871ba6d" timestamp="2026-02-05T12:27:25.862Z" tests="2" failures="0" errors="0" time="0.270">
-    <testcase name="Supprimer produit" time="0.270" classname="ProductsDeleteProduct"/>
-    <testcase name="Vérifier Schema de réponse" time="0.270" classname="ProductsDeleteProduct"/>
+  <testsuite name="Products / Delete Product" id="d8bf9aaf-859f-4bbe-b367-45f1cf0e566e" timestamp="2026-02-05T12:49:50.554Z" tests="2" failures="0" errors="0" time="0.307">
+    <testcase name="Supprimer produit" time="0.307" classname="ProductsDeleteProduct"/>
+    <testcase name="Vérifier Schema de réponse" time="0.307" classname="ProductsDeleteProduct"/>
   </testsuite>
 </testsuites>
