@@ -1,0 +1,32 @@
+pm.test("Product created", () => {
+    pm.response.to.have.status(201);
+});
+
+const jsonData = pm.response.json();
+pm.environment.set("id", jsonData.id);
+
+const schema = {
+    "definitions": {
+        "Welcome": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "title"
+            ],
+            "title": "Welcome"
+        }
+    }
+}
+
+pm.test("Vérifier Schema de réponse", () => {
+  pm.response.to.have.jsonSchema(schema);
+});

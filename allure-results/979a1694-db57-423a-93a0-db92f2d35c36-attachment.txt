@@ -1,0 +1,274 @@
+pm.test("Afficher la liste des produits", () => {
+    pm.response.to.have.status(200);
+});
+
+const schema = {
+    "definitions": {
+        "Welcome": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "products": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Product"
+                    }
+                },
+                "total": {
+                    "type": "integer"
+                },
+                "skip": {
+                    "type": "integer"
+                },
+                "limit": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "limit",
+                "products",
+                "skip",
+                "total"
+            ],
+            "title": "Welcome"
+        },
+        "Product": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "category": {
+                    "$ref": "#/definitions/Category"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "discountPercentage": {
+                    "type": "number"
+                },
+                "rating": {
+                    "type": "number"
+                },
+                "stock": {
+                    "type": "integer"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "brand": {
+                    "type": "string"
+                },
+                "sku": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "integer"
+                },
+                "dimensions": {
+                    "$ref": "#/definitions/Dimensions"
+                },
+                "warrantyInformation": {
+                    "type": "string"
+                },
+                "shippingInformation": {
+                    "type": "string"
+                },
+                "availabilityStatus": {
+                    "$ref": "#/definitions/AvailabilityStatus"
+                },
+                "reviews": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Review"
+                    }
+                },
+                "returnPolicy": {
+                    "$ref": "#/definitions/ReturnPolicy"
+                },
+                "minimumOrderQuantity": {
+                    "type": "integer"
+                },
+                "meta": {
+                    "$ref": "#/definitions/Meta"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri",
+                        "qt-uri-protocols": [
+                            "https"
+                        ],
+                        "qt-uri-extensions": [
+                            ".webp"
+                        ]
+                    }
+                },
+                "thumbnail": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".webp"
+                    ]
+                }
+            },
+            "required": [
+                "availabilityStatus",
+                "category",
+                "description",
+                "dimensions",
+                "discountPercentage",
+                "id",
+                "images",
+                "meta",
+                "minimumOrderQuantity",
+                "price",
+                "rating",
+                "returnPolicy",
+                "reviews",
+                "shippingInformation",
+                "sku",
+                "stock",
+                "tags",
+                "thumbnail",
+                "title",
+                "warrantyInformation",
+                "weight"
+            ],
+            "title": "Product"
+        },
+        "Dimensions": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "width": {
+                    "type": "number"
+                },
+                "height": {
+                    "type": "number"
+                },
+                "depth": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "depth",
+                "height",
+                "width"
+            ],
+            "title": "Dimensions"
+        },
+        "Meta": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "barcode": {
+                    "type": "string"
+                },
+                "qrCode": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                }
+            },
+            "required": [
+                "barcode",
+                "createdAt",
+                "qrCode",
+                "updatedAt"
+            ],
+            "title": "Meta"
+        },
+        "Review": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "rating": {
+                    "type": "integer"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "reviewerName": {
+                    "type": "string"
+                },
+                "reviewerEmail": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "comment",
+                "date",
+                "rating",
+                "reviewerEmail",
+                "reviewerName"
+            ],
+            "title": "Review"
+        },
+        "AvailabilityStatus": {
+            "type": "string",
+            "enum": [
+                "In Stock",
+                "Low Stock"
+            ],
+            "title": "AvailabilityStatus"
+        },
+        "Category": {
+            "type": "string",
+            "enum": [
+                "beauty",
+                "fragrances",
+                "furniture",
+                "groceries"
+            ],
+            "title": "Category"
+        },
+        "ReturnPolicy": {
+            "type": "string",
+            "enum": [
+                "No return policy",
+                "7 days return policy",
+                "90 days return policy",
+                "60 days return policy",
+                "30 days return policy"
+            ],
+            "title": "ReturnPolicy"
+        }
+    }
+}
+
+
+pm.test("Vérifier Schema de réponse", () => {
+  pm.response.to.have.jsonSchema(schema);
+});

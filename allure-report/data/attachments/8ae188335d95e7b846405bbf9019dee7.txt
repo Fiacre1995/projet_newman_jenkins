@@ -1,0 +1,222 @@
+pm.test("Supprimer produit", () => {
+    pm.response.to.have.status(200);
+});
+
+const schema = {
+    "definitions": {
+        "Welcome": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "discountPercentage": {
+                    "type": "number"
+                },
+                "rating": {
+                    "type": "number"
+                },
+                "stock": {
+                    "type": "integer"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sku": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "integer"
+                },
+                "dimensions": {
+                    "$ref": "#/definitions/Dimensions"
+                },
+                "warrantyInformation": {
+                    "type": "string"
+                },
+                "shippingInformation": {
+                    "type": "string"
+                },
+                "availabilityStatus": {
+                    "type": "string"
+                },
+                "reviews": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Review"
+                    }
+                },
+                "returnPolicy": {
+                    "type": "string"
+                },
+                "minimumOrderQuantity": {
+                    "type": "integer"
+                },
+                "meta": {
+                    "$ref": "#/definitions/Meta"
+                },
+                "images": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri",
+                        "qt-uri-protocols": [
+                            "https"
+                        ],
+                        "qt-uri-extensions": [
+                            ".webp"
+                        ]
+                    }
+                },
+                "thumbnail": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".webp"
+                    ]
+                },
+                "isDeleted": {
+                    "type": "boolean"
+                },
+                "deletedOn": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "required": [
+                "availabilityStatus",
+                "category",
+                "deletedOn",
+                "description",
+                "dimensions",
+                "discountPercentage",
+                "id",
+                "images",
+                "isDeleted",
+                "meta",
+                "minimumOrderQuantity",
+                "price",
+                "rating",
+                "returnPolicy",
+                "reviews",
+                "shippingInformation",
+                "sku",
+                "stock",
+                "tags",
+                "thumbnail",
+                "title",
+                "warrantyInformation",
+                "weight"
+            ],
+            "title": "Welcome"
+        },
+        "Dimensions": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "width": {
+                    "type": "number"
+                },
+                "height": {
+                    "type": "number"
+                },
+                "depth": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "depth",
+                "height",
+                "width"
+            ],
+            "title": "Dimensions"
+        },
+        "Meta": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "barcode": {
+                    "type": "string"
+                },
+                "qrCode": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".png"
+                    ]
+                }
+            },
+            "required": [
+                "barcode",
+                "createdAt",
+                "qrCode",
+                "updatedAt"
+            ],
+            "title": "Meta"
+        },
+        "Review": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "rating": {
+                    "type": "integer"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "date": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "reviewerName": {
+                    "type": "string"
+                },
+                "reviewerEmail": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "comment",
+                "date",
+                "rating",
+                "reviewerEmail",
+                "reviewerName"
+            ],
+            "title": "Review"
+        }
+    }
+}
+
+pm.test("Vérifier Schema de réponse", () => {
+  pm.response.to.have.jsonSchema(schema);
+});
