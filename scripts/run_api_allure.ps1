@@ -16,5 +16,5 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "Génération du rapport Allure..."
 allure generate .\allure-results\ -o allure-report
 
-Write-Host "Ouverture du rapport..."
-allure open allure-report
+#Write-Host "Ouverture du rapport..."
+#allure open allure-report
