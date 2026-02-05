@@ -2,10 +2,9 @@ Write-Host "Nettoyage des anciens rapports..."
 Remove-Item -Recurse -Force allure-results, allure-report -ErrorAction SilentlyContinue
 
 Write-Host "Exécution Newman..."
-npx newman run collections/Users.postman_collection.json `
+newman run collections/Users.postman_collection.json `
  -e environnements/Dev.postman_environment.json `
- -r allure,junit `
- --reporter-junit-export newman-junit.xml
+ -r allure
 
 # Afficher le code de sortie de Newman pour info
 Write-Host "Code retour Newman: $LASTEXITCODE"
@@ -16,3 +15,6 @@ if ($LASTEXITCODE -ne 0) {
 
 Write-Host "Génération du rapport Allure..."
 allure generate .\allure-results\ -o allure-report
+
+#Write-Host "Ouverture du rapport..."
+#allure open allure-report
