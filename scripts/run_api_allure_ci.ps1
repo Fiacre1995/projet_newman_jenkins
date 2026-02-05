@@ -2,7 +2,7 @@ Write-Host "Nettoyage des anciens rapports..."
 Remove-Item -Recurse -Force allure-results, allure-report -ErrorAction SilentlyContinue
 
 Write-Host "Exécution Newman..."
-npx newman run collections/Users.postman_collection.json `
+newman run collections/Users.postman_collection.json `
  -e environnements/Dev.postman_environment.json `
  -r allure,junit `
  --reporter-junit-export newman-junit.xml
