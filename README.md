@@ -17,5 +17,5 @@ Pré-requis (Supprimer ce qui existait) : Remove-Item -Recurse -Force allure-res
 2- allure generate .\allure-results\ -o allure-report 
 3- allure open allure-report
 
-# Générer en une ligne de commande avec allure report valide
+# Générer en une ligne de commande avec allure report valider
 Remove-Item -Recurse -Force allure-results, allure-report; newman run collections/Users.postman_collection.json -e environnements/Dev.postman_environment.json -r allure; allure generate .\allure-results\ -o allure-report; allure open allure-report
